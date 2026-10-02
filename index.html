@@ -1,0 +1,206 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>The Marvel Thread</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b12;--cd:#161622;--tx:#f3f3f7;--mu:#9a9ab0;--ln:#2e2e45;--gd:#f5c518;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--bg:#f2f2f7;--cd:#fff;--tx:#14141f;--mu:#5d5d75;--ln:#cfcfe0}}
+:root[data-theme=light]{--bg:#f2f2f7;--cd:#fff;--tx:#14141f;--mu:#5d5d75;--ln:#cfcfe0}
+html{scroll-padding-top:150px}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 system-ui,sans-serif}
+h1,h3,.yr,.gh{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;letter-spacing:.04em}
+header{text-align:center;padding:26px 14px 8px}
+h1{font-size:clamp(40px,10vw,76px);margin:0;line-height:1;background:linear-gradient(90deg,#e23636,var(--gd),#e23636);-webkit-background-clip:text;background-clip:text;color:transparent}
+header p{margin:6px 0 0;color:var(--mu)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:8px 10px;border-bottom:1px solid var(--ln)}
+.tabs{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+button{font:inherit;color:var(--tx);cursor:pointer}
+.tabs button{background:var(--cd);border:1px solid var(--ln);border-radius:20px;padding:6px 14px}
+.tabs button.a{background:var(--gd);color:#000;border-color:var(--gd);font-weight:700}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:8px 0 2px}
+.chips button,.ch button{background:none;border:1px solid var(--c,var(--ln));border-radius:14px;padding:2px 9px;font-size:12px;white-space:nowrap;color:var(--tx)}
+.chips button.a,.ch button.a{background:var(--c);color:#000;font-weight:700}
+.st{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--mu);gap:8px}
+.st button{background:var(--cd);border:1px solid var(--ln);border-radius:12px;padding:3px 10px;font-size:13px}
+main{max-width:760px;margin:0 auto;padding:6px 12px 70px}
+#L{position:relative;padding-left:46px}
+#L:before{content:"";position:absolute;left:22px;top:0;bottom:0;width:2px;background:var(--ln)}
+#S{position:absolute;left:0;top:0;width:100%;pointer-events:none;overflow:visible}
+.th{fill:none;stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 4px var(--a));stroke-dasharray:1;stroke-dashoffset:1;animation:dr 1.6s ease forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.r{position:relative;margin:10px 0;transition:opacity .25s}.r.off{opacity:.3}
+.dot{position:absolute;left:-34px;top:16px;width:24px;height:24px;border-radius:50%;background:var(--bg);border:3px solid var(--ln);z-index:2;cursor:pointer}
+.r.on .dot{border-color:var(--a);box-shadow:0 0 10px var(--a)}
+.dot{cursor:default}.r.wp .dot,.r.wb .dot{border-color:var(--gd)}.r.wp.wb .dot{background:var(--gd)}.r.wp.wb .dot:after{content:"\2713";position:absolute;inset:0;text-align:center;color:#000;font-size:14px;line-height:18px}
+.wr{display:flex;gap:8px;margin-top:10px}.wr button{background:none;border:1px solid var(--ln);border-radius:16px;padding:4px 12px;font-size:13px}.wr button.a{background:var(--gd);color:#000;border-color:var(--gd);font-weight:700}.wr button[data-w=p].a{background:#ff4d6d;border-color:#ff4d6d;color:#fff}.wr button[data-w=b].a{background:#ff8fc7;border-color:#ff8fc7;color:#000}
+.cd{position:relative;z-index:1;background:var(--cd);border:1px solid var(--ln);border-left:5px solid var(--u);border-radius:10px;padding:10px 12px;background-image:linear-gradient(120deg,transparent 60%,color-mix(in srgb,var(--u) 18%,transparent))}
+.r.wp.wb .cd{border-color:var(--gd)}
+.tp{font-size:11px;letter-spacing:.08em;color:var(--u);font-weight:700}.tp b{background:var(--gd);color:#000;border-radius:4px;padding:0 5px;margin-left:6px}
+h3{margin:2px 0 0;font-size:25px;line-height:1.1}.dt{color:var(--mu);font-size:13px}
+.cd p{margin:5px 0 0;font-size:13px}.ch{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.yr,.gh{font-size:34px;color:var(--gd);margin:22px 0 0}.gd{color:var(--mu);font-size:13px;margin:0}
+.fl .cd{box-shadow:0 0 0 3px var(--gd)}
+footer{text-align:center;color:var(--mu);font-size:12px;padding:20px}footer button{background:none;border:0;color:var(--mu);text-decoration:underline}
+</style></head><body>
+<header><h1>The Marvel Thread</h1><p>Every movie &amp; series, in order. Tap a character to pull their thread through every title they appear in.</p></header>
+<div class="bar"><div class="tabs" id="T"></div><div class="chips" id="C"></div><div class="st"><span id="P"></span><button id="N">Next up &darr;</button></div></div>
+<main><div id="L"><svg id="S"></svg><div id="R"></div></div></main>
+<footer>Original title cards, no studio artwork. Pglu&#10084;&#65039; &amp; Bukku&#128536; progress is saved and synced between you two. <span id="Y"></span></footer>
+<script>
+const CH={IM:'Iron Man',CA:'Captain America',TH:'Thor',HK:'Hulk',HW:'Hawkeye',BW:'Black Widow',SP:'Spider-Man',DS:'Doctor Strange',LK:'Loki',WM:'Wanda',VS:'Vision',FA:'Falcon',BK:'Bucky',AM:'Ant-Man',BP:'Black Panther',CM:'Marvels',GG:'Guardians',SC:'Shang-Chi',DD:'Daredevil',PU:'Punisher',WV:'Wolverine',DP:'Deadpool',XM:'X-Men',FF:'Fantastic Four',DM:'Doom',VN:'Venom'};
+const K=Object.keys(CH),col=k=>`hsl(${K.indexOf(k)*360/K.length},85%,62%)`;
+const U={f:['MCU FILM','#e23636'],v:['MARVEL SERIES','#ff7a45'],x:['FOX X-MEN','#3aa0ff'],q:['FOX FANTASTIC FOUR','#2dd4bf'],s:['SONY SPIDER-VERSE','#c084fc'],o:['OTHER MARVEL','#9ca3af']};
+const D=`f1|Iron Man|2008-05-02|IM|Where the MCU begins
+f2|The Incredible Hulk|2008-06-13|HK IM|Tony Stark cameo
+f3|Iron Man 2|2010-05-07|IM BW|Introduces Black Widow
+f4|Thor|2011-05-06|TH LK HW|Loki's origin
+f5|Captain America: The First Avenger|2011-07-22|CA BK|Steve and Bucky's start
+f6|The Avengers|2012-05-04|IM CA TH HK HW BW LK|Everything comes together
+f7|Iron Man 3|2013-05-03|IM|
+f8|Thor: The Dark World|2013-11-08|TH LK|
+f9|Captain America: The Winter Soldier|2014-04-04|CA BW FA BK|Introduces Falcon; Bucky returns
+f10|Guardians of the Galaxy|2014-08-01|GG|
+f11|Avengers: Age of Ultron|2015-05-01|IM CA TH HK HW BW WM VS FA|Introduces Wanda and Vision
+f12|Ant-Man|2015-07-17|AM FA|
+f13|Captain America: Civil War|2016-05-06|CA IM BK BW HW WM VS SP BP AM FA|Avengers split; Spider-Man and Black Panther arrive
+f14|Doctor Strange|2016-11-04|DS|Magic and the multiverse begin
+f15|Guardians of the Galaxy Vol. 2|2017-05-05|GG|
+f16|Spider-Man: Homecoming|2017-07-07|SP IM|Tony mentors Peter
+f17|Thor: Ragnarok|2017-11-03|TH HK LK DS|
+f18|Black Panther|2018-02-16|BP|
+f19|Avengers: Infinity War|2018-04-27|IM CA TH HK BW DS SP BP GG WM VS FA BK LK|Thanos's snap
+f20|Ant-Man and the Wasp|2018-07-06|AM|Quantum Realm setup
+f21|Captain Marvel|2019-03-08|CM|
+f22|Avengers: Endgame|2019-04-26|IM CA TH HK HW BW DS SP BP GG WM VS FA BK LK AM CM|Ends the Infinity Saga; Loki escapes with the Tesseract
+f23|Spider-Man: Far From Home|2019-07-02|SP|
+f24|Black Widow|2021-07-09|BW|
+f25|Shang-Chi and the Legend of the Ten Rings|2021-09-03|SC HK DS|
+f26|Eternals|2021-11-05||
+f27|Spider-Man: No Way Home|2021-12-17|SP DS|Brings back the Raimi and Webb Spider-Men. Watch their films first
+f28|Doctor Strange in the Multiverse of Madness|2022-05-06|DS WM XM|Wanda's turn; Professor X cameo
+f29|Thor: Love and Thunder|2022-07-08|TH GG|
+f30|Black Panther: Wakanda Forever|2022-11-11|BP|
+f31|Ant-Man and the Wasp: Quantumania|2023-02-17|AM|Introduces Kang
+f32|Guardians of the Galaxy Vol. 3|2023-05-05|GG|
+f33|The Marvels|2023-11-10|CM|Mid-credits scene points toward Doomsday-era plot
+f34|Deadpool & Wolverine|2024-07-26|DP WV XM LK|Fox heroes enter the MCU. Watch Loki, Deadpool 1-2 and Logan first
+f35|Captain America: Brave New World|2025-02-14|CA FA HK|Sam Wilson as Captain America
+f36|Thunderbolts*|2025-05-02|BW BK|Becomes the New Avengers
+f37|The Fantastic Four: First Steps|2025-07-25|FF DM|Earth-828; Doom teased
+f38|Spider-Man: Brand New Day|2026-07-31|SP HK|Peter after the world forgot him
+f39|Avengers: Doomsday|2026-12-18|DM FF XM TH FA BK BP SC LK AM BW|Announced cast includes Fox X-Men and the Fantastic Four
+v1|WandaVision|2021-01-15|WM VS|Wanda's arc leads to Multiverse of Madness
+v2|The Falcon and the Winter Soldier|2021-03-19|FA BK CA|Sam takes the shield
+v3|Loki (Season 1)|2021-06-09|LK|Introduces the TVA and the multiverse
+v4|What If...? (Season 1)|2021-08-11||Animated alternate timelines
+v5|Hawkeye|2021-11-24|HW|
+v6|Moon Knight|2022-03-30||
+v7|Ms. Marvel|2022-06-08|CM|Kamala Khan returns in The Marvels
+v8|I Am Groot (shorts)|2022-08-10|GG|
+v9|She-Hulk: Attorney at Law|2022-08-18|HK DD|
+v10|Werewolf by Night (special)|2022-10-07||
+v11|Guardians of the Galaxy Holiday Special|2022-11-25|GG|
+v12|Secret Invasion|2023-06-21|CM|
+v13|Loki (Season 2)|2023-10-05|LK|Finishes Loki's story
+v14|What If...? (Season 2)|2023-12-22||
+v15|Echo|2024-01-09|DD HW|Sets up Daredevil: Born Again
+v16|X-Men '97 (Season 1)|2024-03-20|XM|Animated, separate from the Fox films
+v17|Agatha All Along|2024-09-18|WM|
+v18|What If...? (Season 3)|2024-12-22||
+v19|Your Friendly Neighborhood Spider-Man (S1)|2025-01-29|SP IM|Animated
+v20|Daredevil: Born Again (Season 1)|2025-03-04|DD PU|
+v21|Ironheart|2025-06-24|IM|
+v22|Eyes of Wakanda|2025-08-27|BP|
+v23|Marvel Zombies|2025-09-24||
+v24|Wonder Man|2026-01-27||
+v25|Daredevil: Born Again (Season 2)|2026-03-24|DD PU|
+v26|The Punisher: One Last Kill (special)|2026-05-00|PU DD|
+v27|X-Men '97 (Season 2)|2026-07-01|XM|
+v28|VisionQuest|2026-10-14|VS WM|Closes the WandaVision trilogy. Premieres Oct 14
+x1|X-Men|2000-07-14|XM WV|Where the Fox mutants begin
+x2|X2: X-Men United|2003-05-02|XM WV|
+x3|X-Men: The Last Stand|2006-05-26|XM WV|
+x4|X-Men Origins: Wolverine|2009-05-01|WV|
+x5|X-Men: First Class|2011-06-03|XM|
+x6|The Wolverine|2013-07-26|WV|
+x7|X-Men: Days of Future Past|2014-05-23|XM WV|Resets the Fox timeline
+x8|Deadpool|2016-02-12|DP|Needed before Deadpool & Wolverine
+x9|X-Men: Apocalypse|2016-05-27|XM|
+x10|Logan|2017-03-03|WV XM|Wolverine's ending, which D&W revisits
+x11|Deadpool 2|2018-05-18|DP XM|
+x12|Dark Phoenix|2019-06-07|XM|
+x13|The New Mutants|2020-08-28|XM|
+q1|Fantastic Four|2005-07-08|FF DM|
+q2|Fantastic Four: Rise of the Silver Surfer|2007-06-15|FF|
+q3|Fantastic Four|2015-08-07|FF DM|
+s1|Spider-Man|2002-05-03|SP|Raimi trilogy
+s2|Spider-Man 2|2004-06-30|SP|
+s3|Spider-Man 3|2007-05-04|SP|
+s4|The Amazing Spider-Man|2012-07-03|SP|Webb duology
+s5|The Amazing Spider-Man 2|2014-05-02|SP|
+s6|Venom|2018-10-05|VN|
+s7|Spider-Man: Into the Spider-Verse|2018-12-14|SP|Animated multiverse; optional
+s8|Venom: Let There Be Carnage|2021-10-01|VN|
+s9|Morbius|2022-04-01||
+s10|Spider-Man: Across the Spider-Verse|2023-06-02|SP|Animated; optional
+s11|Madame Web|2024-02-14|SP|
+s12|Venom: The Last Dance|2024-10-25|VN|
+s13|Kraven the Hunter|2024-12-13|SP|
+o1|Blade|1998-08-21||Blade trilogy
+o2|Blade II|2002-03-22||
+o3|Daredevil (film)|2003-02-14|DD|
+o4|Blade: Trinity|2004-12-08||
+o5|The Punisher|2004-04-16|PU|
+o6|Ghost Rider|2007-02-16||
+o7|Agents of S.H.I.E.L.D. (7 seasons)|2013-09-24||TV; Phil Coulson and the Avengers' world
+o8|Daredevil (Netflix, 3 seasons)|2015-04-10|DD|Born Again continues this story
+o9|Jessica Jones, Luke Cage, Iron Fist, The Defenders|2015-11-20|DD|Netflix Marvel
+o10|The Punisher (Netflix)|2017-11-17|PU|`.split('\n').map(l=>{const[id,t,d,c,n]=l.split('|');return{id,t,d,c:c?c.split(' '):[],n:n||''}});
+const by=Object.fromEntries(D.map(r=>[r.id,r])),srt=a=>a.sort((p,q)=>p.d<q.d?-1:1);
+const TR={};[['M','x1 x2 x7 f6 f19 f22 f27 f28 f31 v3 v13 f34 f36 f37'],['R','x8 x10 x11 f11 f13 f33 f30 f35 f38 v1 f25 v22'],['O','s1 s2 s4 s5 v16 v27 v17 v28 q1']].forEach(([k,s])=>s.split(' ').forEach(i=>TR[i]=k));
+const TN={M:'MUST WATCH',R:'RECOMMENDED',O:'OPTIONAL'};
+const pre=p=>D.filter(r=>r.id[0]==p);
+const G=[['Spider-Man: every version',srt([...pre('s'),...['f16','f23','f27','f38','v19'].map(i=>by[i])]),'Raimi, Webb, Holland, Venom and the animated Spider-Verse'],
+['X-Men, Wolverine & Deadpool',srt([...pre('x'),by.f34,by.v16,by.v27]),'Fox films plus the MCU crossover'],
+['Fantastic Four',srt([...pre('q'),by.f37]),'Three earlier attempts and the MCU debut'],
+['Other Marvel',srt(pre('o')),'Blade, Daredevil, Punisher and the pre-Disney+ TV']];
+// ====== PASTE YOUR FIREBASE REALTIME DATABASE URL HERE (no trailing slash) ======
+const DB='https://marvel-tracke-default-rtdb.asia-southeast1.firebasedatabase.app';
+// =================================================================================
+const WN={p:'Pglu\u2764\uFE0F',b:'Bukku\uD83D\uDE18'};
+let T='all',A='',W={p:new Set(),b:new Set()};
+try{const o=JSON.parse(localStorage.getItem('mt5')||'{}');W.p=new Set(o.p||[]);W.b=new Set(o.b||[])}catch(e){}
+const sv=()=>{try{localStorage.setItem('mt5',JSON.stringify({p:[...W.p],b:[...W.b]}))}catch(e){}};
+const setSync=m=>{const e=document.getElementById('Y');if(e)e.textContent=m};
+async function pull(){if(!DB){setSync('(offline mode: saved on this device only)');return}
+try{const r=await fetch(DB+'/mt.json',{cache:'no-store'});if(!r.ok)throw 0;const o=(await r.json())||{};
+W.p=new Set(Object.keys(o.p||{}));W.b=new Set(Object.keys(o.b||{}));sv();paint();setSync('(synced)')}catch(e){setSync('(sync failed, showing saved copy)')}}
+async function push(k,id,on){sv();if(!DB)return;
+try{const r=await fetch(DB+'/mt/'+k+'/'+encodeURIComponent(id)+'.json',{method:on?'PUT':'DELETE',body:on?'true':undefined});if(!r.ok)throw 0;setSync('(synced)')}catch(e){setSync('(sync failed, will retry on next change)')}}
+
+const $=s=>document.querySelector(s),mo='Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ');
+const fd=d=>{const[y,m,x]=d.split('-');return(+x?+x+' ':'')+mo[m-1]+' '+y};
+const now=new Date().toISOString().slice(0,10);
+const list=()=>T=='all'?srt([...D]):T=='doom'?srt(Object.keys(TR).map(i=>by[i]).concat(by.f39)):G.flatMap(g=>g[1]);
+function row(r){const p=r.id.match(/[a-z]+/)[0],u=U[p],wp=W.p.has(r.id),wb=W.b.has(r.id),soon=r.d>now?'<b>COMING SOON</b>':'',tier=T=='doom'&&TR[r.id]?`<b>${TN[TR[r.id]]}</b>`:'';
+return`<div class="r${wp?' wp':''}${wb?' wb':''}" id="r-${r.id}" data-i="${r.id}"><i class="dot"></i><div class="cd" style="--u:${u[1]}"><div class="tp">${u[0]}${soon}${tier}</div><h3>${r.t}</h3><div class="dt">${fd(r.d)}</div>${r.n?`<p>${r.n}</p>`:''}<div class="ch">${r.c.map(c=>`<button data-c="${c}" style="--c:${col(c)}">${CH[c]}</button>`).join('')}</div><div class="wr"><button data-w="p" class="${wp?'a':''}">${WN.p}${wp?' \u2713':''}</button><button data-w="b" class="${wb?'a':''}">${WN.b}${wb?' \u2713':''}</button></div></div></div>`}
+function render(){let h='',y='';
+if(T=='uni')G.forEach(g=>{h+=`<div class="gh">${g[0]}</div><p class="gd">${g[2]}</p>`+g[1].map(row).join('')});
+else if(T=='doom'){h='<p class="gd" style="margin-top:12px">Marvel\'s own Disney+ "Countdown to Avengers: Doomsday" collection has 15 titles, from X-Men to The Fantastic Four: First Steps. This path adds the multiverse pieces other guides call essential. Cast for Doomsday is announced, not official canon yet.</p>'+list().map(r=>{const a=r.d.slice(0,4);const s=a!=y?`<div class="yr">${a}</div>`:'';y=a;return s+row(r)}).join('')}
+else h=list().map(r=>{const a=r.d.slice(0,4);const s=a!=y?`<div class="yr">${a}</div>`:'';y=a;return s+row(r)}).join('');
+$('#R').innerHTML=h;$('#T').innerHTML=[['all','All (release order)'],['uni','By universe'],['doom','Doomsday path']].map(t=>`<button data-t="${t[0]}" class="${T==t[0]?'a':''}">${t[1]}</button>`).join('');
+$('#C').innerHTML=K.map(k=>`<button data-c="${k}" style="--c:${col(k)}">${CH[k]}</button>`).join('');mark()}
+function mark(){document.querySelectorAll('[data-c]').forEach(b=>b.classList.toggle('a',b.dataset.c==A));
+const L=$('#L');L.style.setProperty('--a',A?col(A):'#fff');
+document.querySelectorAll('.r').forEach(e=>{const on=A&&by[e.dataset.i].c.includes(A);e.classList.toggle('on',!!on);e.classList.toggle('off',!!A&&!on)});
+const ls=list();$('#P').textContent=WN.p+' '+ls.filter(r=>W.p.has(r.id)).length+' | '+WN.b+' '+ls.filter(r=>W.b.has(r.id)).length+' / '+ls.length+(A?' | thread: '+CH[A]:'');draw()}
+function paint(){document.querySelectorAll('.r').forEach(e=>{const i=e.dataset.i;['p','b'].forEach(k=>{const on=W[k].has(i);e.classList.toggle('w'+k,on);const b=e.querySelector('[data-w='+k+']');if(b){b.classList.toggle('a',on);b.textContent=WN[k]+(on?' \u2713':'')}})});mark()}
+function draw(){const L=$('#L'),s=$('#S'),b=L.getBoundingClientRect();s.setAttribute('height',L.scrollHeight);s.innerHTML='';if(!A)return;
+const P=[...L.querySelectorAll('.r.on .dot')].map(d=>{const r=d.getBoundingClientRect();return[r.left-b.left+12,r.top-b.top+12]});if(P.length<2)return;
+let d=`M${P[0]}`;for(let i=1;i<P.length;i++){const[a,b2]=P[i-1],[c,e]=P[i],o=(i%2?-1:1)*24,dy=e-b2;d+=`C${a+o},${b2+dy*.3} ${c-o},${e-dy*.3} ${c},${e}`}
+s.innerHTML=`<path class="th" pathLength="1" d="${d}" stroke="${col(A)}"/>`}
+document.addEventListener('click',e=>{const t=e.target;
+if(t.dataset.t){T=t.dataset.t;render();scrollTo(0,0)}
+else if(t.dataset.c){A=A==t.dataset.c?'':t.dataset.c;mark()}
+else if(t.dataset.w){const k=t.dataset.w,i=t.closest('.r').dataset.i,on=!W[k].has(i);on?W[k].add(i):W[k].delete(i);paint();push(k,i,on)}});
+$('#N').onclick=()=>{const r=[...document.querySelectorAll('.r')].find(e=>!(W.p.has(e.dataset.i)&&W.b.has(e.dataset.i)));if(r){r.scrollIntoView({behavior:'smooth',block:'center'});r.classList.add('fl');setTimeout(()=>r.classList.remove('fl'),1800)}};
+addEventListener('resize',draw);render();pull();setInterval(()=>{if(!document.hidden)pull()},8000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)pull()});
+</script></body></html>
