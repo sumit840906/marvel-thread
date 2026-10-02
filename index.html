@@ -43,7 +43,7 @@ footer{text-align:center;color:var(--mu);font-size:12px;padding:20px}footer butt
 <header><h1>The Marvel Thread</h1><p>Every movie &amp; series, in order. Tap a character to pull their thread through every title they appear in.</p></header>
 <div class="bar"><div class="tabs" id="T"></div><div class="chips" id="C"></div><div class="st"><span id="P"></span><button id="N">Next up &darr;</button></div></div>
 <main><div id="L"><svg id="S"></svg><div id="R"></div></div></main>
-<footer>Original title cards, no studio artwork. Pglu&#10084;&#65039; &amp; Bukku&#128536; progress is saved and synced between you two. <span id="Y"></span></footer>
+<footer>Original title cards, no studio artwork. Mumma&#10084;&#65039; &amp; Bukku&#128536; progress is saved and synced between you two. <span id="Y"></span></footer>
 <script>
 const CH={IM:'Iron Man',CA:'Captain America',TH:'Thor',HK:'Hulk',HW:'Hawkeye',BW:'Black Widow',SP:'Spider-Man',DS:'Doctor Strange',LK:'Loki',WM:'Wanda',VS:'Vision',FA:'Falcon',BK:'Bucky',AM:'Ant-Man',BP:'Black Panther',CM:'Marvels',GG:'Guardians',SC:'Shang-Chi',DD:'Daredevil',PU:'Punisher',WV:'Wolverine',DP:'Deadpool',XM:'X-Men',FF:'Fantastic Four',DM:'Doom',VN:'Venom'};
 const K=Object.keys(CH),col=k=>`hsl(${K.indexOf(k)*360/K.length},85%,62%)`;
@@ -165,7 +165,7 @@ const G=[['Spider-Man: every version',srt([...pre('s'),...['f16','f23','f27','f3
 // ====== PASTE YOUR FIREBASE REALTIME DATABASE URL HERE (no trailing slash) ======
 const DB='https://marvel-tracke-default-rtdb.asia-southeast1.firebasedatabase.app';
 // =================================================================================
-const WN={p:'Pglu\u2764\uFE0F',b:'Bukku\uD83D\uDE18'};
+const WN={p:'Mumma\u2764\uFE0F',b:'Bukku\uD83D\uDE18'};
 let T='all',A='',W={p:new Set(),b:new Set()};
 try{const o=JSON.parse(localStorage.getItem('mt5')||'{}');W.p=new Set(o.p||[]);W.b=new Set(o.b||[])}catch(e){}
 const sv=()=>{try{localStorage.setItem('mt5',JSON.stringify({p:[...W.p],b:[...W.b]}))}catch(e){}};
