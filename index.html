@@ -108,7 +108,7 @@ v18|What If...? (Season 3)|2024-12-22||
 v19|Your Friendly Neighborhood Spider-Man (S1)|2025-01-29|SP IM|Animated
 v20|Daredevil: Born Again (Season 1)|2025-03-04|DD PU|
 v21|Ironheart|2025-06-24|IM|
-v22|Eyes of Wakanda|2025-08-27|BP|
+v22|Eyes of Wakanda|2025-08-01|BP|
 v23|Marvel Zombies|2025-09-24||
 v24|Wonder Man|2026-01-27||
 v25|Daredevil: Born Again (Season 2)|2026-03-24|DD PU|
@@ -117,7 +117,7 @@ v27|X-Men '97 (Season 2)|2026-07-01|XM|
 v28|VisionQuest|2026-10-14|VS WM|Closes the WandaVision trilogy. Premieres Oct 14
 x1|X-Men|2000-07-14|XM WV|Where the Fox mutants begin
 x2|X2: X-Men United|2003-05-02|XM WV|
-x3|X-Men: The Last Stand|2006-05-26|XM WV|
+x3|X-Men: The Last Stand|2006-05-26|XM WV|Beast debuts here
 x4|X-Men Origins: Wolverine|2009-05-01|WV|
 x5|X-Men: First Class|2011-06-03|XM|
 x6|The Wolverine|2013-07-26|WV|
@@ -155,8 +155,8 @@ o8|Daredevil (Netflix, 3 seasons)|2015-04-10|DD|Born Again continues this story
 o9|Jessica Jones, Luke Cage, Iron Fist, The Defenders|2015-11-20|DD|Netflix Marvel
 o10|The Punisher (Netflix)|2017-11-17|PU|`.split('\n').map(l=>{const[id,t,d,c,n]=l.split('|');return{id,t,d,c:c?c.split(' '):[],n:n||''}});
 const by=Object.fromEntries(D.map(r=>[r.id,r])),srt=a=>a.sort((p,q)=>p.d<q.d?-1:1);
-const TR={};[['M','x1 x2 x7 f6 f19 f22 f27 f28 f31 v3 v13 f34 f36 f37'],['R','x8 x10 x11 f11 f13 f33 f30 f35 f38 v1 f25 v22'],['O','s1 s2 s4 s5 v16 v27 v17 v28 q1']].forEach(([k,s])=>s.split(' ').forEach(i=>TR[i]=k));
-const TN={M:'MUST WATCH',R:'RECOMMENDED',O:'OPTIONAL'};
+const TR={};[['M','x1 x2 x7 f5 f6 f19 f22 f27 f28 f31 v3 v13 f34 f36 f37'],['R','x8 x10 x11 f11 f13 f33 f30 f35 f38 v1 f25 v22'],['O','s1 s2 s3 s4 s5 v16 v27 v17 v28 q1'],['F','f1 f2 f3 f4 f7 f8 f9 f10 f12 f14 f15 f16 f17 f18 f20 f21 f23 f24 f26 v2 v4 v5 v6 v7 v9 v11 v12 v19 v21 x3 x4 x5 x6 x9 x12']].forEach(([k,s])=>s.split(' ').forEach(i=>TR[i]=k));
+const TN={M:'MUST WATCH',R:'RECOMMENDED',O:'OPTIONAL',F:'FULL RUN'};
 const pre=p=>D.filter(r=>r.id[0]==p);
 const G=[['Spider-Man: every version',srt([...pre('s'),...['f16','f23','f27','f38','v19'].map(i=>by[i])]),'Raimi, Webb, Holland, Venom and the animated Spider-Verse'],
 ['X-Men, Wolverine & Deadpool',srt([...pre('x'),by.f34,by.v16,by.v27]),'Fox films plus the MCU crossover'],
@@ -184,7 +184,7 @@ function row(r){const p=r.id.match(/[a-z]+/)[0],u=U[p],wp=W.p.has(r.id),wb=W.b.h
 return`<div class="r${wp?' wp':''}${wb?' wb':''}" id="r-${r.id}" data-i="${r.id}"><i class="dot"></i><div class="cd" style="--u:${u[1]}"><div class="tp">${u[0]}${soon}${tier}</div><h3>${r.t}</h3><div class="dt">${fd(r.d)}</div>${r.n?`<p>${r.n}</p>`:''}<div class="ch">${r.c.map(c=>`<button data-c="${c}" style="--c:${col(c)}">${CH[c]}</button>`).join('')}</div><div class="wr"><button data-w="p" class="${wp?'a':''}">${WN.p}${wp?' \u2713':''}</button><button data-w="b" class="${wb?'a':''}">${WN.b}${wb?' \u2713':''}</button></div></div></div>`}
 function render(){let h='',y='';
 if(T=='uni')G.forEach(g=>{h+=`<div class="gh">${g[0]}</div><p class="gd">${g[2]}</p>`+g[1].map(row).join('')});
-else if(T=='doom'){h='<p class="gd" style="margin-top:12px">Marvel\'s own Disney+ "Countdown to Avengers: Doomsday" collection has 15 titles, from X-Men to The Fantastic Four: First Steps. This path adds the multiverse pieces other guides call essential. Cast for Doomsday is announced, not official canon yet.</p>'+list().map(r=>{const a=r.d.slice(0,4);const s=a!=y?`<div class="yr">${a}</div>`:'';y=a;return s+row(r)}).join('')}
+else if(T=='doom'){h='<p class="gd" style="margin-top:12px">Everything on the road to Avengers: Doomsday: the full MCU, the Raimi and Webb Spider-Man films and the Fox X-Men films. MUST WATCH is the core path, RECOMMENDED is strongly suggested, OPTIONAL is extra context and FULL RUN fills in the rest. Cast for Doomsday is announced, not official canon yet.</p>'+list().map(r=>{const a=r.d.slice(0,4);const s=a!=y?`<div class="yr">${a}</div>`:'';y=a;return s+row(r)}).join('')}
 else h=list().map(r=>{const a=r.d.slice(0,4);const s=a!=y?`<div class="yr">${a}</div>`:'';y=a;return s+row(r)}).join('');
 $('#R').innerHTML=h;$('#T').innerHTML=[['all','All (release order)'],['uni','By universe'],['doom','Doomsday path']].map(t=>`<button data-t="${t[0]}" class="${T==t[0]?'a':''}">${t[1]}</button>`).join('');
 $('#C').innerHTML=K.map(k=>`<button data-c="${k}" style="--c:${col(k)}">${CH[k]}</button>`).join('');mark()}
